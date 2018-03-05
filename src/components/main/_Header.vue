@@ -1,5 +1,5 @@
 <template>
   <div>
-    <span>1</span>
+    <router-link :to="{name: 'dashboard'}">dashboard</router-link>
   </div>
 </template>

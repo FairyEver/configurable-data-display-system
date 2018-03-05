@@ -12,6 +12,7 @@ export default new Router({
       children: [
         {
           path: 'dashboard',
+          name: 'dashboard',
           component: resolve => { require(['@/page/dashboard/index.vue'], resolve) }
         }
       ]
