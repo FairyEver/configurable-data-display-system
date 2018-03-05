@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <Header></Header>
+      <x-header></x-header>
     </div>
     <div>
       <router-view></router-view>
@@ -12,7 +12,7 @@
 <script>
 export default {
   components: {
-    Header: () => import('./_Header.vue')
+    XHeader: () => import('./_Header.vue')
   }
 }
 </script>
