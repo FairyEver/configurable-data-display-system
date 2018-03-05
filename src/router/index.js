@@ -6,9 +6,15 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/dashboard',
-      name: 'dashboard',
-      component: resolve => { require(['@/page/dashboard/index.vue'], resolve) }
+      path: '/',
+      name: 'index',
+      component: resolve => { require(['@/components/main/index.vue'], resolve) },
+      children: [
+        {
+          path: 'dashboard',
+          component: resolve => { require(['@/page/dashboard/index.vue'], resolve) }
+        }
+      ]
     }
   ]
 })
