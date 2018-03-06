@@ -1,7 +1,11 @@
 <template>
   <div class="page-list">
     <ul>
-      <li v-for="(item, index) in pages" :key="index" @click="handlePageClick(index)">
+      <li
+        v-for="(item, index) in pages"
+        :key="index"
+        :class="{active: index === active}"
+        @click="handlePageClick(index)">
         <p class="title">{{item.title}}</p>
         <p class="type">{{translate(item.type)}}</p>
       </li>
@@ -98,7 +102,7 @@ export default {
   height: 100px;
   text-align: center;
   border-radius: 4px;
-  border: 1px solid #CCC;
+  border: 1px solid #dddee1;
   cursor: pointer;
   user-select: none;
   margin-bottom: 10px;
@@ -107,11 +111,18 @@ export default {
   background-color: #F7F7F7;
   border: 1px solid #666;
 }
+.page-list ul li.active {
+  color: #2d8cf0;
+  border: 1px solid #2d8cf0;
+}
+.page-list ul li.active:hover {
+  background-color: #edf6ff;
+  border: 1px solid #2d8cf0;
+}
 .page-list ul li .title {
   font-size: 20px;
 }
 .page-list ul li .type {
   font-size: 12px;
-  color: #333;
 }
 </style>
