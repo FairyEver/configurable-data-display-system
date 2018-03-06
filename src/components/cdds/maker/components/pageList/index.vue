@@ -1,37 +1,19 @@
 <template>
   <div class="page-list">
     <ul>
-      <li
-        v-for="(item, index) in pages"
-        :key="index"
-        @click="handlePageClick(index)">
+      <li v-for="(item, index) in pages" :key="index" @click="handlePageClick(index)">
         <p class="title">{{item.title}}</p>
         <p class="type">{{translate(item.type)}}</p>
       </li>
     </ul>
-    <Button
-      size="large"
-      long
-      @click="addTypeModal = true">
-      新建页面
-    </Button>
+    <Button size="large" long @click="addTypeModal = true">新建页面</Button>
     <Modal
       width="300"
       title="新建类型"
       v-model="addTypeModal">
-      <i-input
-        v-model="addName"
-        placeholder="页面名称"
-        style="margin-bottom: 10px;">
-      </i-input>
-      <Button
-        @click="handleSelectAddPageType('grid')">
-        网格布局
-      </Button>
-      <Button
-        @click="handleSelectAddPageType('free')">
-        自由布局
-      </Button>
+      <i-input v-model="addName" placeholder="页面名称" style="margin-bottom: 10px;"></i-input>
+      <Button @click="handleSelectAddPageType('grid')">网格布局</Button>
+      <Button @click="handleSelectAddPageType('free')">自由布局</Button>
       <div slot="footer">
         <Button type="text" long @click="addTypeModal = false">取消</Button>
       </div>
