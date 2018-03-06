@@ -8,6 +8,7 @@
         @add="handlePageListAdd">
       </cdds-maker-page-list>
     </div>
+    <div class="main-header">main-header</div>
     <div class="main">
       <div v-if="pageActive === null" class="info-choose-page">请先选择一个页面</div>
     </div>
@@ -109,9 +110,19 @@ export default {
   width: 200px;
   overflow: auto;
 }
-.maker .main {
+.maker .main-header {
   position: absolute;
   top: 0px;
+  left: 200px;
+  right: 300px;
+  height: 30px;
+  border-left: 1px solid #dddee1;
+  border-right: 1px solid #dddee1;
+  border-bottom: 1px solid #dddee1;
+}
+.maker .main {
+  position: absolute;
+  top: 30px;
   bottom: 0px;
   left: 200px;
   right: 300px;

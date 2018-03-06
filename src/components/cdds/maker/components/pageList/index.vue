@@ -114,9 +114,10 @@ export default {
 .page-list ul li.active {
   color: #2d8cf0;
   border: 1px solid #2d8cf0;
+  background-color: #edf6ff;
 }
 .page-list ul li.active:hover {
-  background-color: #edf6ff;
+  background-color: #dcedff;
   border: 1px solid #2d8cf0;
 }
 .page-list ul li .title {
