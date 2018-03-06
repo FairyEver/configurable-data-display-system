@@ -1,5 +1,6 @@
 <template>
   <div class="maker" :style="style">
+    <!-- 页面列表 -->
     <div class="left">
       <cdds-maker-page-list
         :pages="currentPages"
@@ -8,10 +9,13 @@
         @add="handlePageListAdd">
       </cdds-maker-page-list>
     </div>
+    <!-- 工具栏 -->
     <div class="main-header">main-header</div>
+    <!-- 预览窗口 主要 -->
     <div class="main">
       <div v-if="pageActive === null" class="info-choose-page">请先选择一个页面</div>
     </div>
+    <!-- 右侧菜单 -->
     <div class="right"></div>
   </div>
 </template>
