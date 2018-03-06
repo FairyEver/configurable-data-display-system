@@ -104,6 +104,7 @@ export default {
   bottom: 0px;
   left: 0px;
   width: 200px;
+  overflow: auto;
 }
 .maker .main {
   position: absolute;
@@ -111,6 +112,7 @@ export default {
   bottom: 0px;
   left: 200px;
   right: 200px;
+  overflow: auto;
 }
 .maker .right {
   position: absolute;
@@ -118,5 +120,6 @@ export default {
   bottom: 0px;
   right: 0px;
   width: 200px;
+  overflow: auto;
 }
 </style>
