@@ -10,7 +10,9 @@
       </cdds-maker-page-list>
     </div>
     <!-- 工具栏 -->
-    <div class="main-header">main-header</div>
+    <div class="main-header">
+      <Button v-if="pageActive !== null" type="error" size="small" @click="handleDeletePage">删除页面</Button>
+    </div>
     <!-- 预览窗口 主要 -->
     <div class="main">
       <div v-if="pageActive === null" class="info-choose-page">请先选择一个页面</div>
@@ -79,7 +81,6 @@ export default {
   methods: {
     // 外部参数变化了 更新内部值
     updateCurrent () {
-      console.log('updateCurrent')
       this.currentStageCell = this.stageCell
       this.currentStageHeight = this.stageHeight
       this.currentStageWidth = this.stageWidth
@@ -87,16 +88,18 @@ export default {
     },
     // 接收页面列表的选中事件
     handlePageListSelect (index) {
-      console.log(index)
       this.pageActive = index
     },
     // 接收页面列表的新建页面事件
     handlePageListAdd ({type, name}) {
-      console.log('新建页面', name, type)
       this.currentPages.push({
         title: name,
         type
       })
+    },
+    // 接收删除页面的事件
+    handleDeletePage () {
+      this.currentPages.splice(this.pageActive, 1)
     }
   }
 }
@@ -121,6 +124,8 @@ export default {
   left: 200px;
   right: 300px;
   height: 30px;
+  padding-top: 3px;
+  padding-left: 3px;
   border-left: 1px solid #dddee1;
   border-right: 1px solid #dddee1;
   border-bottom: 1px solid #dddee1;
