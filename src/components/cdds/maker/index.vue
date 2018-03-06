@@ -1,6 +1,8 @@
 <template>
   <div class="maker" :style="style">
-    <div class="left">left</div>
+    <div class="left">
+      <cdds-maker-page-list></cdds-maker-page-list>
+    </div>
     <div class="main">main</div>
     <div class="right">right</div>
   </div>
@@ -8,6 +10,10 @@
 
 <script>
 export default {
+  name: 'cdds-maker',
+  components: {
+    CddsMakerPageList: () => import('./components/pageList')
+  },
   props: {
     height: {
       type: String,
