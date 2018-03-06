@@ -79,8 +79,12 @@ export default {
       console.log(index)
     },
     // 接收页面列表的新建页面事件
-    handlePageListAdd (type) {
-      console.log('新建页面', type)
+    handlePageListAdd ({type, name}) {
+      console.log('新建页面', name, type)
+      this.currentPages.push({
+        title: name,
+        type
+      })
     }
   }
 }

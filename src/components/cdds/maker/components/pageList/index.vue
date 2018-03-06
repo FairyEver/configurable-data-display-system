@@ -19,6 +19,11 @@
       width="300"
       title="新建类型"
       v-model="addTypeModal">
+      <i-input
+        v-model="addName"
+        placeholder="页面名称"
+        style="margin-bottom: 10px;">
+      </i-input>
       <Button
         @click="handleSelectAddPageType('grid')">
         网格布局
@@ -47,7 +52,9 @@ export default {
   data () {
     return {
       // 新建类型模态框
-      addTypeModal: false
+      addTypeModal: false,
+      // 新建页面的名称
+      addName: '未命名页面'
     }
   },
   methods: {
@@ -58,10 +65,17 @@ export default {
     },
     // 接收选择新建页面类型按钮的事件
     handleSelectAddPageType (type) {
+      if (!this.addName) {
+        this.$Message.error('名称不能空')
+        return
+      }
       // 关闭模态框
       this.addTypeModal = false
       // 将事件传递出去
-      this.$emit('add', type)
+      this.$emit('add', {
+        type,
+        name: this.addName
+      })
     },
     // 翻译类型为中文
     translate (type) {
