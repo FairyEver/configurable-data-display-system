@@ -87,6 +87,7 @@ export default {
     },
     // 接收页面列表的选中事件
     handlePageListSelect (index) {
+      console.log(index)
       this.pageActive = index
     },
     // 接收页面列表的新建页面事件
