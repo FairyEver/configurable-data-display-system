@@ -1,5 +1,5 @@
 <template>
-  <cdds-maker v-bind="maker"></cdds-maker>
+  <cdds-maker ref="maker" v-bind="maker"></cdds-maker>
 </template>
 
 <script>
@@ -43,7 +43,9 @@ export default {
         this.maker.stageHeight = stageHeight
         this.maker.stageWidth = stageWidth
         this.maker.pages = pages
-      }, 3000)
+        // 更新编辑器数据
+        this.$nextTick(this.$refs.maker.updateCurrent)
+      }, 1000)
     }
   }
 }

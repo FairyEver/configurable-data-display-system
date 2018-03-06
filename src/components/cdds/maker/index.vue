@@ -2,7 +2,7 @@
   <div class="maker" :style="style">
     <div class="left">
       <cdds-maker-page-list
-        :pages="pages"
+        :pages="currentPages"
         @select="handlePageListSelect"
         @add="handlePageListAdd">
       </cdds-maker-page-list>
@@ -54,7 +54,7 @@ export default {
       currentStageHeight: 0,
       currentStageWidth: 0,
       // 私有页面设置
-      currentPages: {}
+      currentPages: []
     }
   },
   computed: {
@@ -66,6 +66,14 @@ export default {
     }
   },
   methods: {
+    // 外部参数变化了 更新内部值
+    updateCurrent () {
+      console.log('updateCurrent')
+      this.currentStageCell = this.stageCell
+      this.currentStageHeight = this.stageHeight
+      this.currentStageWidth = this.stageWidth
+      this.currentPages = this.pages
+    },
     // 接收页面列表的选中事件
     handlePageListSelect (index) {
       console.log(index)
