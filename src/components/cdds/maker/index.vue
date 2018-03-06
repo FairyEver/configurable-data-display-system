@@ -8,7 +8,7 @@
       </cdds-maker-page-list>
     </div>
     <div class="main">main</div>
-    <div class="right">right</div>
+    <div class="right"></div>
   </div>
 </template>
 
