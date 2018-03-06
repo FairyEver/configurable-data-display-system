@@ -1,7 +1,9 @@
 <template>
   <div>
     <!-- 编辑器 -->
-    <cdds-maker></cdds-maker>
+    <cdds-maker
+      height="calc(100vh - 30px)">
+    </cdds-maker>
   </div>
 </template>
 

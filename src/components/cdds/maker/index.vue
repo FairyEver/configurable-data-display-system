@@ -1,6 +1,8 @@
 <template>
   <div class="maker" :style="style">
-    maker
+    <div class="left">left</div>
+    <div class="main">main</div>
+    <div class="right">right</div>
   </div>
 </template>
 
@@ -10,10 +12,11 @@ export default {
     height: {
       type: String,
       required: false,
-      default: '720px'
+      default: '500px'
     }
   },
   computed: {
+    // 容器的样式
     style () {
       return {
         height: this.height
@@ -25,6 +28,27 @@ export default {
 
 <style scoped>
 .maker {
-  background-color: #333;
+  position: relative;
+}
+.maker .left {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 200px;
+}
+.maker .main {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 200px;
+  right: 200px;
+}
+.maker .right {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  width: 200px;
 }
 </style>
