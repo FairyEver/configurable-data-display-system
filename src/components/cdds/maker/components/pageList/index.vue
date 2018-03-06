@@ -11,9 +11,25 @@
     <Button
       size="large"
       long
-      @click="handleAdd">
+      @click="addTypeModal = true">
       新建页面
     </Button>
+    <Modal
+      width="300"
+      title="新建类型"
+      v-model="addTypeModal">
+      <Button
+        @click="handleSelectAddPageType('grid')">
+        网格布局
+      </Button>
+      <Button
+        @click="handleSelectAddPageType('free')">
+        自由布局
+      </Button>
+      <div slot="footer">
+        <Button type="text" long @click="addTypeModal = false">取消</Button>
+      </div>
+    </Modal>
   </div>
 </template>
 
@@ -27,16 +43,24 @@ export default {
       default: () => []
     }
   },
+  data () {
+    return {
+      // 新建类型模态框
+      addTypeModal: false
+    }
+  },
   methods: {
     // 接收点击页面的事件
     handlePageClick (index) {
       // 将事件传递出去
       this.$emit('select', index)
     },
-    // 接收新建页面的事件
-    handleAdd () {
+    // 接收选择新建页面类型按钮的事件
+    handleSelectAddPageType (type) {
+      // 关闭模态框
+      this.addTypeModal = false
       // 将事件传递出去
-      this.$emit('add')
+      this.$emit('add', type)
     }
   }
 }

@@ -79,8 +79,8 @@ export default {
       console.log(index)
     },
     // 接收页面列表的新建页面事件
-    handlePageListAdd () {
-      console.log('新建页面')
+    handlePageListAdd (type) {
+      console.log('新建页面', type)
     }
   }
 }
