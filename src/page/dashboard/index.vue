@@ -19,10 +19,13 @@ export default {
   data () {
     return {
       maker: {
+        // 舞台设置
         stageCell: 0,
         stageHeight: 0,
         stageWidth: 0,
+        // 页面信息
         pages: [],
+        // 编辑器设置
         height: 'calc(100vh - 30px)'
       }
     }
