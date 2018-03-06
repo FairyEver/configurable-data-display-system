@@ -25,6 +25,6 @@ export default {
 
 <style scoped>
 .maker {
-  background-color: #CCC;
+  background-color: #333;
 }
 </style>
