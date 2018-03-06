@@ -25,10 +25,17 @@
 export default {
   name: 'cdds-maker-page-list',
   props: {
+    // 所有的页面
     pages: {
       type: Array,
       required: false,
       default: () => []
+    },
+    // 当前激活的页面
+    active: {
+      // 开始的时候是null 以后是数字
+      required: false,
+      default: null
     }
   },
   data () {
