@@ -8,7 +8,11 @@
         @add="handlePageListAdd">
       </cdds-maker-page-list>
     </div>
-    <div class="main">main</div>
+    <div class="main">
+      <div v-if="pageActive === null" class="info-choose-page">
+        请先选择一个页面
+      </div>
+    </div>
     <div class="right"></div>
   </div>
 </template>
@@ -98,6 +102,7 @@ export default {
 .maker {
   position: relative;
 }
+/* 主要的左中右布局 */
 .maker .left {
   position: absolute;
   top: 0px;
@@ -111,15 +116,29 @@ export default {
   top: 0px;
   bottom: 0px;
   left: 200px;
-  right: 200px;
+  right: 300px;
   overflow: auto;
+  border-left: 1px solid #dddee1;
+  border-right: 1px solid #dddee1;
 }
 .maker .right {
   position: absolute;
   top: 0px;
   bottom: 0px;
   right: 0px;
-  width: 200px;
+  width: 300px;
   overflow: auto;
+}
+/* 请选择一个页面的提示 */
+.info-choose-page {
+  height: 30px;
+  line-height: 30px;
+  width: 200px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -15px;
 }
 </style>
