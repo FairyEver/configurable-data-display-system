@@ -3,6 +3,7 @@
     <div class="left">
       <cdds-maker-page-list
         :pages="currentPages"
+        :active="pageActive"
         @select="handlePageListSelect"
         @add="handlePageListAdd">
       </cdds-maker-page-list>
@@ -19,6 +20,7 @@ export default {
     CddsMakerPageList: () => import('./components/pageList')
   },
   props: {
+    // 整个编辑器的高度
     height: {
       type: String,
       required: false,
@@ -54,7 +56,9 @@ export default {
       currentStageHeight: 0,
       currentStageWidth: 0,
       // 私有页面设置
-      currentPages: []
+      currentPages: [],
+      // 现在激活的页面
+      pageActive: null
     }
   },
   computed: {
