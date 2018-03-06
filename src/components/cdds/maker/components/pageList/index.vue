@@ -6,6 +6,13 @@
 
 <script>
 export default {
-  name: 'cdds-maker-page-list'
+  name: 'cdds-maker-page-list',
+  props: {
+    pages: {
+      type: Array,
+      required: false,
+      default: () => []
+    }
+  }
 }
 </script>

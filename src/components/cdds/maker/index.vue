@@ -1,7 +1,7 @@
 <template>
   <div class="maker" :style="style">
     <div class="left">
-      <cdds-maker-page-list></cdds-maker-page-list>
+      <cdds-maker-page-list :pages="pages"></cdds-maker-page-list>
     </div>
     <div class="main">main</div>
     <div class="right">right</div>
@@ -19,6 +19,38 @@ export default {
       type: String,
       required: false,
       default: '500px'
+    },
+    // 舞台设置
+    stageCell: {
+      type: Number,
+      required: false,
+      default: 0
+    },
+    stageHeight: {
+      type: Number,
+      required: false,
+      default: 0
+    },
+    stageWidth: {
+      type: Number,
+      required: false,
+      default: 0
+    },
+    // 页面设置
+    pages: {
+      type: Array,
+      required: false,
+      default: () => []
+    }
+  },
+  data () {
+    return {
+      // 私有舞台设置
+      currentStageCell: 0,
+      currentStageHeight: 0,
+      currentStageWidth: 0,
+      // 私有页面设置
+      currentPages: {}
     }
   },
   computed: {
