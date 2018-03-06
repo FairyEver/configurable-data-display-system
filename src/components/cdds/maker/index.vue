@@ -9,9 +9,7 @@
       </cdds-maker-page-list>
     </div>
     <div class="main">
-      <div v-if="pageActive === null" class="info-choose-page">
-        请先选择一个页面
-      </div>
+      <div v-if="pageActive === null" class="info-choose-page">请先选择一个页面</div>
     </div>
     <div class="right"></div>
   </div>
