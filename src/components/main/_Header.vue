@@ -1,6 +1,11 @@
 <template>
   <div class="header">
-    <router-link v-for="(item, index) in link" :key="index" :to="{name: item.name}">{{item.title}}</router-link>
+    <router-link
+      v-for="(item, index) in link"
+      :key="index"
+      :to="{name: item.name}">
+      {{item.title}}
+    </router-link>
   </div>
 </template>
 
