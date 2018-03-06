@@ -13,5 +13,6 @@
 }
 .header a {
   color: #FFF;
+  text-decoration: none;
 }
 </style>
