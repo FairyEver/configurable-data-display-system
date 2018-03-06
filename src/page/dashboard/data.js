@@ -6,7 +6,8 @@ export default {
   },
   pages: [
     {
-      title: '页面1'
+      title: '页面1',
+      type: 'grid'
     }
   ]
 }

@@ -5,7 +5,8 @@
         v-for="(item, index) in pages"
         :key="index"
         @click="handlePageClick(index)">
-        {{item.title}}
+        <p class="title">{{item.title}}</p>
+        <p class="type">{{translate(item.type)}}</p>
       </li>
     </ul>
     <Button
@@ -61,6 +62,17 @@ export default {
       this.addTypeModal = false
       // 将事件传递出去
       this.$emit('add', type)
+    },
+    // 翻译类型为中文
+    translate (type) {
+      switch (type) {
+        case 'grid':
+          return '网格布局'
+        case 'free':
+          return '自由布局'
+        default:
+          return '不知道什么布局'
+      }
     }
   }
 }
@@ -76,9 +88,11 @@ export default {
   padding: 0px;
 }
 .page-list ul li {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   height: 100px;
-  line-height: 100px;
   text-align: center;
   border-radius: 4px;
   border: 1px solid #CCC;
@@ -89,5 +103,12 @@ export default {
 .page-list ul li:hover {
   background-color: #F7F7F7;
   border: 1px solid #666;
+}
+.page-list ul li .title {
+  font-size: 20px;
+}
+.page-list ul li .type {
+  font-size: 12px;
+  color: #333;
 }
 </style>
