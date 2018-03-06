@@ -1,9 +1,19 @@
 <template>
   <div class="page-list">
     <ul>
-      <li v-for="(item, index) in pages" :key="index">{{item.title}}</li>
+      <li
+        v-for="(item, index) in pages"
+        :key="index"
+        @click="handlePageClick(index)">
+        {{item.title}}
+      </li>
     </ul>
-    <Button size="large" long>新建页面</Button>
+    <Button
+      size="large"
+      long
+      @click="handleAdd">
+      新建页面
+    </Button>
   </div>
 </template>
 
@@ -15,6 +25,18 @@ export default {
       type: Array,
       required: false,
       default: () => []
+    }
+  },
+  methods: {
+    // 接收点击页面的事件
+    handlePageClick (index) {
+      // 将事件传递出去
+      this.$emit('select', index)
+    },
+    // 接收新建页面的事件
+    handleAdd () {
+      // 将事件传递出去
+      this.$emit('add')
     }
   }
 }

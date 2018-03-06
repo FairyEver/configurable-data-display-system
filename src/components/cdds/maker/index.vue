@@ -1,7 +1,11 @@
 <template>
   <div class="maker" :style="style">
     <div class="left">
-      <cdds-maker-page-list :pages="pages"></cdds-maker-page-list>
+      <cdds-maker-page-list
+        :pages="pages"
+        @select="handlePageListSelect"
+        @add="handlePageListAdd">
+      </cdds-maker-page-list>
     </div>
     <div class="main">main</div>
     <div class="right">right</div>
@@ -59,6 +63,16 @@ export default {
       return {
         height: this.height
       }
+    }
+  },
+  methods: {
+    // 接收页面列表的选中事件
+    handlePageListSelect (index) {
+      console.log(index)
+    },
+    // 接收页面列表的新建页面事件
+    handlePageListAdd () {
+      console.log('新建页面')
     }
   }
 }
