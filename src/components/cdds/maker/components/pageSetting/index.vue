@@ -18,18 +18,15 @@ export default {
     },
     // 当前激活的页面
     active: {
-      // 开始的时候是null 以后是数字
+      type: Number,
       required: false,
       default: null
     }
   },
   computed: {
+    // 返回现在激活页面的名称
     activePageName () {
-      if (this.active === null) {
-        return ''
-      } else {
-        return this.pages[this.active].title
-      }
+      return this.pages[this.active].title
     }
   }
 }
