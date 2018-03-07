@@ -19,6 +19,8 @@
       <Tabs v-if="validPageActive !== null">
         <TabPane label="页面设置">
           <cdds-page-setting
+            :pages="currentPages"
+            :active="validPageActive"
             @delete="handleDeletePage">
           </cdds-page-setting>
         </TabPane>
