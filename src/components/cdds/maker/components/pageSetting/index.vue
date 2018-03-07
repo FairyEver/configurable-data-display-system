@@ -3,7 +3,7 @@
     <Form label-position="top">
       <FormItem label="重命名">
         <i-input v-model="rename">
-          <Button slot="append" icon="checkmark" @click="$emit('rename', rename)"></Button>
+          <Button slot="append" icon="checkmark" @click="$emit('rename', rename)">确定</Button>
         </i-input>
       </FormItem>
       <FormItem label="删除">

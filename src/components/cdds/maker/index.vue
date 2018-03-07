@@ -21,7 +21,8 @@
           <cdds-page-setting
             :pages="currentPages"
             :active="validPageActive"
-            @delete="handleDeletePage">
+            @rename="handlePageRename"
+            @delete="handlePageDelete">
           </cdds-page-setting>
         </TabPane>
         <TabPane label="参数设置">标签二的内容</TabPane>
@@ -115,8 +116,12 @@ export default {
         type
       })
     },
+    // 接收更改页面标题的事件
+    handlePageRename (newName) {
+      this.currentPages[this.validPageActive].title = newName
+    },
     // 接收删除页面的事件
-    handleDeletePage () {
+    handlePageDelete () {
       this.currentPages.splice(this.validPageActive, 1)
     }
   }
