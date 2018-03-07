@@ -10,7 +10,7 @@
       </cdds-maker-page-list>
     </div>
     <!-- 预览窗口 主要 -->
-    <div class="main">
+    <div ref="main" class="main">
       <div
         v-if="validPageActive === null"
         class="info-choose-page">
@@ -102,6 +102,11 @@ export default {
         return this.pageActive < this.currentPages.length ? this.pageActive : this.currentPages.length - 1
       }
     }
+  },
+  mounted () {
+    const mainHeight = this.$refs.main.offsetHeight
+    const mainWidth = this.$refs.main.offsetWidth
+    console.log(mainWidth, mainHeight)
   },
   methods: {
     // 外部参数变化了 更新内部值
