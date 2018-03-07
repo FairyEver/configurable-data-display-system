@@ -198,7 +198,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #333;
+  background-color: #f8f8f9;
 }
 .maker .right {
   position: absolute;
