@@ -4,20 +4,20 @@
     <div class="left">
       <cdds-maker-page-list
         :pages="currentPages"
-        :active="pageActive"
+        :active="validPageActive"
         @select="handlePageListSelect"
         @add="handlePageListAdd">
       </cdds-maker-page-list>
     </div>
     <!-- 工具栏 -->
     <div class="main-header">
-      <Button v-if="pageActive !== null" type="error" size="small" @click="handleDeletePage">
+      <Button v-if="validPageActive !== null" type="error" size="small" @click="handleDeletePage">
         <Icon type="trash-a"></Icon>
       </Button>
     </div>
     <!-- 预览窗口 主要 -->
     <div class="main">
-      <div v-if="pageActive === null" class="info-choose-page">请先选择一个页面</div>
+      <div v-if="validPageActive === null" class="info-choose-page">请先选择一个页面</div>
       <cdds-viewer></cdds-viewer>
     </div>
     <!-- 右侧菜单 -->
@@ -80,6 +80,14 @@ export default {
       return {
         height: this.height
       }
+    },
+    // 有效的“现在激活的页面” 实际用的都是这个
+    validPageActive () {
+      if (this.pageActive === null || this.currentPages.length === 0) {
+        return null
+      } else {
+        return this.pageActive < this.currentPages.length ? this.pageActive : this.currentPages.length - 1
+      }
     }
   },
   methods: {
@@ -103,7 +111,7 @@ export default {
     },
     // 接收删除页面的事件
     handleDeletePage () {
-      this.currentPages.splice(this.pageActive, 1)
+      this.currentPages.splice(this.validPageActive, 1)
     }
   }
 }
