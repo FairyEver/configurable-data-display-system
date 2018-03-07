@@ -84,7 +84,10 @@ export default {
       // 私有页面设置
       currentPages: [],
       // 现在激活的页面
-      pageActive: null
+      pageActive: null,
+      // 中间主要容器的尺寸
+      mainWidth: 0,
+      mainHeight: 0
     }
   },
   computed: {
@@ -104,11 +107,15 @@ export default {
     }
   },
   mounted () {
-    const mainHeight = this.$refs.main.offsetHeight
-    const mainWidth = this.$refs.main.offsetWidth
-    console.log(mainWidth, mainHeight)
+    // 获取中间主要容器的尺寸
+    this.getMainSize()
   },
   methods: {
+    // 获取中间主要容器的尺寸
+    getMainSize () {
+      this.mainWidth = this.$refs.main.offsetWidth
+      this.mainHeight = this.$refs.main.offsetHeight
+    },
     // 外部参数变化了 更新内部值
     updateCurrent () {
       this.currentStageCell = this.stageCell
