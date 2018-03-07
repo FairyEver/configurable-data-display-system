@@ -8,19 +8,19 @@
 export default {
   name: 'cdds-maker',
   props: {
-    // 单位尺寸
+    // 舞台 单位尺寸
     cell: {
       type: Number,
       required: false,
       default: 1
     },
-    // 宽度
+    // 舞台 宽度
     width: {
       type: Number,
       required: false,
       default: 192
     },
-    // 高度
+    // 舞台 高度
     height: {
       type: Number,
       required: false,
@@ -40,6 +40,6 @@ export default {
 
 <style scoped>
 .stage {
-  background-color: #333;
+  background-color: #FFF;
 }
 </style>

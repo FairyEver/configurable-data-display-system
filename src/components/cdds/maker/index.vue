@@ -111,8 +111,8 @@ export default {
     },
     // 中间预览窗口的样式 主要是设置缩放
     viewerStyle () {
-      const zoomWidth = this.mainWidth / (this.stageCell * this.stageWidth)
-      const zoomHeight = this.mainHeight / (this.stageCell * this.stageHeight)
+      const zoomWidth = this.mainWidth / (this.stageCell * this.stageWidth + 40)
+      const zoomHeight = this.mainHeight / (this.stageCell * this.stageHeight + 40)
       return {
         zoom: zoomWidth > zoomHeight ? zoomHeight : zoomWidth
       }
@@ -193,11 +193,12 @@ export default {
   left: 200px;
   right: 300px;
   overflow: auto;
-  border-left: 1px solid #dddee1;
-  border-right: 1px solid #dddee1;
+  /* border-left: 1px solid #dddee1; */
+  /* border-right: 1px solid #dddee1; */
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #333;
 }
 .maker .right {
   position: absolute;
