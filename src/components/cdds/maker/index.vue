@@ -11,8 +11,12 @@
     </div>
     <!-- 工具条 -->
     <div class="main-header">
-      <Button class="header-btn" :type="autoSize ? 'default' : 'primary'" size="small" @click="handleSetScale(false)">1:1</Button>
-      <Button class="header-btn" :type="autoSize ? 'primary' : 'default'" size="small" @click="handleSetScale(true)">适合窗口</Button>
+      <Button class="header-btn" :type="autoSize ? 'default' : 'primary'" size="small" @click="handleSetScale(false)">
+        1:1
+      </Button>
+      <Button class="header-btn" :type="autoSize ? 'primary' : 'default'" size="small" @click="handleSetScale(true)">
+        适合窗口
+      </Button>
     </div>
     <!-- 预览窗口 主要 -->
     <div ref="main" class="main" :class="{center: autoSize}">
@@ -22,6 +26,7 @@
         请先选择一个页面
       </div>
       <div :style="viewerStyle">
+        <!-- 加载一个视图 在使用的时候也是用这个组件 -->
         <cdds-viewer
           v-if="validPageActive !== null"
           :cell="stageCell"

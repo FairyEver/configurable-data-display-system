@@ -2,16 +2,10 @@
   <div :style="stageStyle" class="stage">
     <!-- 网格布局 -->
     <template v-if="page.type === 'grid'">
-      grid
-    </template>
-    <!-- 自由布局 -->
-    <template v-if="page.type === 'free'">
-      free
-    </template>
-    <!-- <grid-layout
-      :layout="layout"
-      :col-num="12"
-      :row-height="30"
+      <grid-layout
+      :layout="gridLayout"
+      :col-num="gridColNum"
+      :row-height="gridRowHeight"
       :is-draggable="true"
       :is-resizable="true"
       :is-mirrored="false"
@@ -19,7 +13,7 @@
       :margin="[10, 10]"
       :use-css-transforms="true">
       <grid-item
-        v-for="(item, index) in layout"
+        v-for="(item, index) in gridLayout"
         :key="index"
         :x="item.x"
         :y="item.y"
@@ -28,7 +22,13 @@
         :i="item.i">
         {{item.i}}
       </grid-item>
-    </grid-layout> -->
+    </grid-layout>
+    </template>
+    <!-- 自由布局 -->
+    <template v-if="page.type === 'free'">
+      free
+      {{page}}
+    </template>
   </div>
 </template>
 
@@ -68,16 +68,13 @@ export default {
   },
   data () {
     return {
-      layout: [
-        {"x":0,"y":0,"w":2,"h":2,"i":"0"},
-        {"x":2,"y":0,"w":2,"h":4,"i":"1"},
-        {"x":4,"y":0,"w":2,"h":5,"i":"2"},
-        {"x":6,"y":0,"w":2,"h":3,"i":"3"},
-        {"x":8,"y":0,"w":2,"h":3,"i":"4"}
-      ]
+      gridColNum: 0,
+      gridRowHeight: 0,
+      gridLayout: []
     }
   },
   computed: {
+    // 舞台样式 主要是设置尺寸
     stageStyle () {
       return {
         width: this.cell * this.width + 'px',
