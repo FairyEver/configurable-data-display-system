@@ -16,8 +16,8 @@
     </div>
     <!-- 右侧菜单 -->
     <div class="right">
-      <Tabs>
-        <TabPane v-if="validPageActive !== null" label="页面设置">
+      <Tabs v-if="validPageActive !== null">
+        <TabPane label="页面设置">
           <cdds-page-setting
             :pages="currentPages"
             :active="validPageActive"
@@ -115,14 +115,17 @@ export default {
         title: name,
         type
       })
+      this.$Message.success('新建页面成功')
     },
     // 接收更改页面标题的事件
     handlePageRename (newName) {
       this.currentPages[this.validPageActive].title = newName
+      this.$Message.success('修改页面标题成功')
     },
     // 接收删除页面的事件
     handlePageDelete () {
       this.currentPages.splice(this.validPageActive, 1)
+      this.$Message.success('删除页面成功')
     }
   }
 }
