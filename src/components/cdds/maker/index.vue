@@ -11,7 +11,9 @@
     </div>
     <!-- 工具栏 -->
     <div class="main-header">
-      <Button v-if="pageActive !== null" type="error" size="small" @click="handleDeletePage">删除页面</Button>
+      <Button v-if="pageActive !== null" type="error" size="small" @click="handleDeletePage">
+        <Icon type="trash-a"></Icon>
+      </Button>
     </div>
     <!-- 预览窗口 主要 -->
     <div class="main">
