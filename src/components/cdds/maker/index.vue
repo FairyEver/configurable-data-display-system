@@ -21,6 +21,7 @@
         :cell="stageCell"
         :width="stageWidth"
         :height="stageHeight"
+        :page="currentPages[validPageActive]"
         :style="viewerStyle">
       </cdds-viewer>
     </div>
