@@ -1,6 +1,14 @@
 <template>
   <div :style="stageStyle" class="stage">
-    <grid-layout
+    <!-- 网格布局 -->
+    <template v-if="page.type === 'grid'">
+      grid
+    </template>
+    <!-- 自由布局 -->
+    <template v-if="page.type === 'free'">
+      free
+    </template>
+    <!-- <grid-layout
       :layout="layout"
       :col-num="12"
       :row-height="30"
@@ -20,7 +28,7 @@
         :i="item.i">
         {{item.i}}
       </grid-item>
-    </grid-layout>
+    </grid-layout> -->
   </div>
 </template>
 

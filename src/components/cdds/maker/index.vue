@@ -219,13 +219,13 @@ export default {
   border-left: 1px solid #dddee1;
   border-right: 1px solid #dddee1;
   background-color: #dddee1;
-  padding: 10px;
+  /* padding: 10px; */
 }
 .maker .main.center {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px;
+  /* padding: 0px; */
 }
 .maker .right {
   position: absolute;
