@@ -21,7 +21,14 @@
       <cdds-viewer></cdds-viewer>
     </div>
     <!-- 右侧菜单 -->
-    <div class="right"></div>
+    <div class="right">
+      <Tabs>
+        <TabPane label="页面设置">
+          <cdds-page-setting></cdds-page-setting>
+        </TabPane>
+        <TabPane label="参数设置">标签二的内容</TabPane>
+      </Tabs>
+    </div>
   </div>
 </template>
 
@@ -30,7 +37,8 @@ export default {
   name: 'cdds-maker',
   components: {
     CddsMakerPageList: () => import('./components/pageList'),
-    CddsViewer: () => import('../viewer')
+    CddsViewer: () => import('../viewer'),
+    CddsPageSetting: () => import('./components/pageSetting')
   },
   props: {
     // 整个编辑器的高度
