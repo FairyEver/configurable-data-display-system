@@ -18,10 +18,7 @@
       <Icon type="plus-round"></Icon>
       新建页面
     </Button>
-    <Modal
-      width="300"
-      title="新建类型"
-      v-model="addTypeModal">
+    <Modal width="300" title="新建页面选项" v-model="addTypeModal">
       <i-input v-model="addName" placeholder="页面名称" style="margin-bottom: 10px;"></i-input>
       <Button @click="handleSelectAddPageType('grid')">网格布局</Button>
       <Button @click="handleSelectAddPageType('free')">自由布局</Button>
