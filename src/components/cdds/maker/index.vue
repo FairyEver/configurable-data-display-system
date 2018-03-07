@@ -11,8 +11,14 @@
     </div>
     <!-- 预览窗口 主要 -->
     <div class="main">
-      <div v-if="validPageActive === null" class="info-choose-page">请先选择一个页面</div>
-      <cdds-viewer v-if="validPageActive !== null"></cdds-viewer>
+      <div
+        v-if="validPageActive === null"
+        class="info-choose-page">
+        请先选择一个页面
+      </div>
+      <cdds-viewer
+        v-if="validPageActive !== null">
+      </cdds-viewer>
     </div>
     <!-- 右侧菜单 -->
     <div class="right">
