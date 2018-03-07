@@ -9,6 +9,7 @@
         @add="handlePageListAdd">
       </cdds-maker-page-list>
     </div>
+    <!-- 工具条 -->
     <div class="main-header">
       <Button class="header-btn" :type="autoSize ? 'default' : 'primary'" size="small" @click="handleSetScale(false)">1:1</Button>
       <Button class="header-btn" :type="autoSize ? 'primary' : 'default'" size="small" @click="handleSetScale(true)">适合窗口</Button>
@@ -33,7 +34,7 @@
     <!-- 右侧菜单 -->
     <div class="right">
       <Tabs v-if="validPageActive !== null">
-        <TabPane label="页面设置">
+        <TabPane label="页面">
           <cdds-page-setting
             :pages="currentPages"
             :active="validPageActive"
@@ -41,7 +42,7 @@
             @delete="handlePageDelete">
           </cdds-page-setting>
         </TabPane>
-        <TabPane label="参数设置">标签二的内容</TabPane>
+        <TabPane label="组件">标签二的内容</TabPane>
       </Tabs>
     </div>
   </div>
