@@ -18,6 +18,7 @@
     <!-- 预览窗口 主要 -->
     <div class="main">
       <div v-if="pageActive === null" class="info-choose-page">请先选择一个页面</div>
+      <cdds-viewer></cdds-viewer>
     </div>
     <!-- 右侧菜单 -->
     <div class="right"></div>
@@ -28,7 +29,8 @@
 export default {
   name: 'cdds-maker',
   components: {
-    CddsMakerPageList: () => import('./components/pageList')
+    CddsMakerPageList: () => import('./components/pageList'),
+    CddsViewer: () => import('../viewer')
   },
   props: {
     // 整个编辑器的高度
