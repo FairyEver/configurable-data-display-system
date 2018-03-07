@@ -17,7 +17,11 @@
         请先选择一个页面
       </div>
       <cdds-viewer
-        v-if="validPageActive !== null">
+        v-if="validPageActive !== null"
+        :cell="stageCell"
+        :width="stageWidth"
+        :height="stageHeight"
+        :style="viewerStyle">
       </cdds-viewer>
     </div>
     <!-- 右侧菜单 -->
@@ -104,6 +108,14 @@ export default {
       } else {
         return this.pageActive < this.currentPages.length ? this.pageActive : this.currentPages.length - 1
       }
+    },
+    // 中间预览窗口的样式 主要是设置缩放
+    viewerStyle () {
+      const zoomWidth = this.mainWidth / (this.stageCell * this.stageWidth)
+      const zoomHeight = this.mainHeight / (this.stageCell * this.stageHeight)
+      return {
+        zoom: zoomWidth > zoomHeight ? zoomHeight : zoomWidth
+      }
     }
   },
   mounted () {
@@ -183,6 +195,9 @@ export default {
   overflow: auto;
   border-left: 1px solid #dddee1;
   border-right: 1px solid #dddee1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .maker .right {
   position: absolute;
