@@ -9,22 +9,18 @@
         @add="handlePageListAdd">
       </cdds-maker-page-list>
     </div>
-    <!-- 工具栏 -->
-    <!-- <div class="main-header">
-      <Button v-if="validPageActive !== null" type="error" size="small" @click="handleDeletePage">
-        <Icon type="trash-a"></Icon>
-      </Button>
-    </div> -->
     <!-- 预览窗口 主要 -->
     <div class="main">
       <div v-if="validPageActive === null" class="info-choose-page">请先选择一个页面</div>
-      <cdds-viewer></cdds-viewer>
+      <cdds-viewer v-if="validPageActive !== null"></cdds-viewer>
     </div>
     <!-- 右侧菜单 -->
     <div class="right">
-      <Tabs>
+      <Tabs v-if="validPageActive !== null">
         <TabPane label="页面设置">
-          <cdds-page-setting></cdds-page-setting>
+          <cdds-page-setting
+            @delete="handleDeletePage">
+          </cdds-page-setting>
         </TabPane>
         <TabPane label="参数设置">标签二的内容</TabPane>
       </Tabs>
@@ -116,11 +112,11 @@ export default {
         title: name,
         type
       })
-    }
+    },
     // 接收删除页面的事件
-    // handleDeletePage () {
-    //   this.currentPages.splice(this.validPageActive, 1)
-    // }
+    handleDeletePage () {
+      this.currentPages.splice(this.validPageActive, 1)
+    }
   }
 }
 </script>
