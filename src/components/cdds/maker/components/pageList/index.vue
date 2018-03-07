@@ -10,7 +10,14 @@
         <p class="type">{{translate(item.type)}}</p>
       </li>
     </ul>
-    <Button size="large" long @click="addTypeModal = true">新建页面</Button>
+    <Button
+      size="large"
+      type="success"
+      long
+      @click="addTypeModal = true">
+      <Icon type="plus-round"></Icon>
+      新建页面
+    </Button>
     <Modal
       width="300"
       title="新建类型"
