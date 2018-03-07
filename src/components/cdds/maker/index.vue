@@ -10,11 +10,11 @@
       </cdds-maker-page-list>
     </div>
     <!-- 工具栏 -->
-    <div class="main-header">
+    <!-- <div class="main-header">
       <Button v-if="validPageActive !== null" type="error" size="small" @click="handleDeletePage">
         <Icon type="trash-a"></Icon>
       </Button>
-    </div>
+    </div> -->
     <!-- 预览窗口 主要 -->
     <div class="main">
       <div v-if="validPageActive === null" class="info-choose-page">请先选择一个页面</div>
@@ -108,11 +108,11 @@ export default {
         title: name,
         type
       })
-    },
-    // 接收删除页面的事件
-    handleDeletePage () {
-      this.currentPages.splice(this.validPageActive, 1)
     }
+    // 接收删除页面的事件
+    // handleDeletePage () {
+    //   this.currentPages.splice(this.validPageActive, 1)
+    // }
   }
 }
 </script>
@@ -130,7 +130,7 @@ export default {
   width: 200px;
   overflow: auto;
 }
-.maker .main-header {
+/* .maker .main-header {
   position: absolute;
   top: 0px;
   left: 200px;
@@ -141,10 +141,10 @@ export default {
   border-left: 1px solid #dddee1;
   border-right: 1px solid #dddee1;
   border-bottom: 1px solid #dddee1;
-}
+} */
 .maker .main {
   position: absolute;
-  top: 30px;
+  top: 0px;
   bottom: 0px;
   left: 200px;
   right: 300px;
