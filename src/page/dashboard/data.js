@@ -6,6 +6,7 @@ export default {
   },
   pages: [
     {
+      // 公用属性
       title: '第一个页面',
       type: 'grid',
       // type = grid 时生效

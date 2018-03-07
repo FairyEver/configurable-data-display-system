@@ -5,13 +5,7 @@
       <grid-layout
       :layout="gridLayout"
       :col-num="gridColNum"
-      :row-height="gridRowHeight"
-      :is-draggable="true"
-      :is-resizable="true"
-      :is-mirrored="false"
-      :vertical-compact="true"
-      :margin="[10, 10]"
-      :use-css-transforms="true">
+      :row-height="gridRowHeight">
       <grid-item
         v-for="(item, index) in gridLayout"
         :key="index"
@@ -20,7 +14,7 @@
         :w="item.w"
         :h="item.h"
         :i="item.i">
-        {{item.i}}
+        [{{item.i}}]
       </grid-item>
     </grid-layout>
     </template>
@@ -68,6 +62,13 @@ export default {
   },
   data () {
     return {
+      // :is-draggable="true"
+      // :is-resizable="true"
+      // :is-mirrored="false"
+      // :vertical-compact="true"
+      // :margin="[10, 10]"
+      // :use-css-transforms="true"
+      // type = grid 时生效
       gridColNum: 0,
       gridRowHeight: 0,
       gridLayout: []
