@@ -9,21 +9,26 @@
         @add="handlePageListAdd">
       </cdds-maker-page-list>
     </div>
+    <div class="main-header">
+      <Button class="header-btn" :type="autoSize ? 'default' : 'primary'" size="small" @click="handleSetScale(false)">1:1</Button>
+      <Button class="header-btn" :type="autoSize ? 'primary' : 'default'" size="small" @click="handleSetScale(true)">适合窗口</Button>
+    </div>
     <!-- 预览窗口 主要 -->
-    <div ref="main" class="main">
+    <div ref="main" class="main" :class="{center: autoSize}">
       <div
         v-if="validPageActive === null"
         class="info-choose-page">
         请先选择一个页面
       </div>
-      <cdds-viewer
-        v-if="validPageActive !== null"
-        :cell="stageCell"
-        :width="stageWidth"
-        :height="stageHeight"
-        :page="currentPages[validPageActive]"
-        :style="viewerStyle">
-      </cdds-viewer>
+      <div :style="viewerStyle">
+        <cdds-viewer
+          v-if="validPageActive !== null"
+          :cell="stageCell"
+          :width="stageWidth"
+          :height="stageHeight"
+          :page="currentPages[validPageActive]">
+        </cdds-viewer>
+      </div>
     </div>
     <!-- 右侧菜单 -->
     <div class="right">
@@ -92,7 +97,9 @@ export default {
       pageActive: null,
       // 中间主要容器的尺寸
       mainWidth: 0,
-      mainHeight: 0
+      mainHeight: 0,
+      // 自动缩放
+      autoSize: true
     }
   },
   computed: {
@@ -112,10 +119,16 @@ export default {
     },
     // 中间预览窗口的样式 主要是设置缩放
     viewerStyle () {
-      const zoomWidth = this.mainWidth / (this.stageCell * this.stageWidth + 40)
-      const zoomHeight = this.mainHeight / (this.stageCell * this.stageHeight + 40)
-      return {
-        zoom: zoomWidth > zoomHeight ? zoomHeight : zoomWidth
+      if (this.autoSize) {
+        const zoomWidth = this.mainWidth / (this.stageCell * this.stageWidth + 40)
+        const zoomHeight = this.mainHeight / (this.stageCell * this.stageHeight + 40)
+        return {
+          zoom: zoomWidth > zoomHeight ? zoomHeight : zoomWidth
+        }
+      } else {
+        return {
+          zoom: 0.9
+        }
       }
     }
   },
@@ -135,6 +148,10 @@ export default {
       this.currentStageHeight = this.stageHeight
       this.currentStageWidth = this.stageWidth
       this.currentPages = this.pages
+    },
+    // 接收用户的设置预览缩放设置
+    handleSetScale (autoSize) {
+      this.autoSize = autoSize
     },
     // 接收页面列表的选中事件
     handlePageListSelect (index) {
@@ -175,31 +192,39 @@ export default {
   width: 200px;
   overflow: auto;
 }
-/* .maker .main-header {
+.maker .main-header {
   position: absolute;
   top: 0px;
   left: 200px;
   right: 300px;
   height: 30px;
-  padding-top: 3px;
-  padding-left: 3px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   border-left: 1px solid #dddee1;
   border-right: 1px solid #dddee1;
   border-bottom: 1px solid #dddee1;
-} */
+}
+.maker .main-header .header-btn {
+  margin-left: 4px;
+}
 .maker .main {
   position: absolute;
-  top: 0px;
+  top: 30px;
   bottom: 0px;
   left: 200px;
   right: 300px;
   overflow: auto;
-  /* border-left: 1px solid #dddee1; */
-  /* border-right: 1px solid #dddee1; */
+  border-left: 1px solid #dddee1;
+  border-right: 1px solid #dddee1;
+  background-color: #dddee1;
+  padding: 10px;
+}
+.maker .main.center {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #333;
+  padding: 0px;
 }
 .maker .right {
   position: absolute;
@@ -220,6 +245,6 @@ export default {
   left: 50%;
   margin-left: -100px;
   margin-top: -15px;
-  color: #FFF;
+  color: #333;
 }
 </style>
