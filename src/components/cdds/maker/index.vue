@@ -16,8 +16,8 @@
     </div>
     <!-- 右侧菜单 -->
     <div class="right">
-      <Tabs v-if="validPageActive !== null">
-        <TabPane label="页面设置">
+      <Tabs>
+        <TabPane v-if="validPageActive !== null" label="页面设置">
           <cdds-page-setting
             :pages="currentPages"
             :active="validPageActive"
