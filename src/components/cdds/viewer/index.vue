@@ -2,18 +2,8 @@
   <div :style="stageStyle" class="stage">
     <!-- 网格布局 -->
     <template v-if="page.type === 'grid'">
-      <grid-layout
-      :layout="gridLayout"
-      :col-num="gridColNum"
-      :row-height="gridRowHeight">
-      <grid-item
-        v-for="(item, index) in gridLayout"
-        :key="index"
-        :x="item.x"
-        :y="item.y"
-        :w="item.w"
-        :h="item.h"
-        :i="item.i">
+      <grid-layout v-bind="gridSetting">
+      <grid-item v-for="(item, index) in gridLayout" :key="index" v-bind="item">
         [{{item.i}}]
       </grid-item>
     </grid-layout>
@@ -62,16 +52,19 @@ export default {
   },
   data () {
     return {
-      // :is-draggable="true"
-      // :is-resizable="true"
-      // :is-mirrored="false"
-      // :vertical-compact="true"
-      // :margin="[10, 10]"
-      // :use-css-transforms="true"
       // type = grid 时生效
-      gridColNum: 0,
-      gridRowHeight: 0,
-      gridLayout: []
+      gridSetting: {
+        isDraggable: true,
+        isResizable: true,
+        isMirrored: false,
+        verticalCompact: true,
+        margin: [0, 0],
+        useCssTransforms: false,
+        // 从外部获取值
+        layout: [],
+        colNum: 0,
+        rowHeight: 0
+      }
     }
   },
   computed: {
