@@ -2,8 +2,8 @@
   <div :style="stageStyle" class="stage">
     <!-- 网格布局 -->
     <template v-if="page.type === 'grid'">
-      <grid-layout v-bind="gridSetting">
-      <grid-item v-for="(item, index) in gridLayout" :key="index" v-bind="item">
+      <grid-layout v-bind="grid">
+      <grid-item v-for="(item, index) in grid.layout" :key="index" v-bind="item">
         [{{item.i}}]
       </grid-item>
     </grid-layout>
@@ -18,6 +18,7 @@
 
 <script>
 import {GridLayout, GridItem} from 'vue-grid-layout'
+import clone from '../lib/clone'
 export default {
   name: 'cdds-viewer',
   components: {
@@ -53,7 +54,7 @@ export default {
   data () {
     return {
       // type = grid 时生效
-      gridSetting: {
+      grid: {
         isDraggable: true,
         isResizable: true,
         isMirrored: false,
@@ -74,6 +75,17 @@ export default {
         width: this.cell * this.width + 'px',
         height: this.cell * this.height + 'px'
       }
+    }
+  },
+  created () {
+    this.propToCurrent()
+  },
+  methods: {
+    // 将数据从参数复制到本地
+    propToCurrent () {
+      this.grid.colNum = this.page.gridColNum
+      this.grid.rowHeight = this.page.gridRowHeight
+      this.grid.layout = clone(this.page.gridLayout)
     }
   }
 }
