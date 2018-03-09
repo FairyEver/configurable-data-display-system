@@ -45,6 +45,8 @@ export default {
         this.maker.pages = pages
         // 更新编辑器数据
         this.$nextTick(this.$refs.maker.updateCurrent)
+        // 显示提示
+        this.$Message.success('载入数据成功')
       }, 1000)
     }
   }
