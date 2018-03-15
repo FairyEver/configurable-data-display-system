@@ -10,7 +10,7 @@
     </template>
     <!-- 自由布局 -->
     <template v-if="page.type === 'free'">
-      free
+      自由布局 还没做
       {{page}}
     </template>
   </div>
